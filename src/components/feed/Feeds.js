@@ -2,6 +2,7 @@
 import React from 'react'
 import styles from "./feeds.module.css"
 import {useState} from 'react'
+import Tweets from '../Tweets/Tweet'
 
 const Feeds = () => {
   const [active, setActive]= useState("For you")
@@ -21,6 +22,8 @@ const Feeds = () => {
         <a href="#" onClick={(e)=> {e.preventDefault(); handleActive("Following");}} className={`${active === "Following" ? styles.active:""}`}>Following</a>
         </div>
       </div>
+
+      <Tweets/> 
       
     </div>
   )

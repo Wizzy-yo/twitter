@@ -1,15 +1,18 @@
-+'use client'
+"use client";
 import React from 'react'
 import styles from "./searchBar.module.css"
 import { fetchData } from '@/utilities/fetchData'
 import {useState} from 'react'
 import { fetchInfo } from '@/utilities/fetchData'
+import {useContext} from 'react'
+import { Searchcontext } from '../Context/Searchcontext';
 
 
 const SearchBar = () => {
 
+const {name, result, setResultgi} = useContext(Searchcontext);
+
 const [userKeyword, setUserKeyword] = useState('')
-const [result, setResult] = useState([])
 const [loading, setLoading] = useState(false)
 
 const handleSearch = async (e)=>{

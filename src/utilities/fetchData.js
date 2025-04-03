@@ -17,9 +17,24 @@ export const fetchData= async (params)=>{
 }
 
 export const fetchInfo= async ()=>{
-    const result = await fetch("https://fakestoreapi.com/products",{
+    const result = await fetch("https://fakestoreapi.com/products",{   
         method: "GET"
     });
+    const data = await result.json();
+    console.log(data)
+    return data;
+}
+
+export const fetchTweets = async () => {
+    const result = await fetch(`${BASE_URL}/retweets?pid=1552735248026411010&count=40`,{
+        method: 'GET',
+        headers:{
+                "x-rapidapi-key": "8c678422c9mshf2eee02f0ebb987p1edec9jsn2b571b71132f",
+                "x-rapidapi-host": "twitter241.p.rapidapi.com",
+        },
+    })
+    console.log(result);
+
     const data = await result.json();
     console.log(data)
     return data;
